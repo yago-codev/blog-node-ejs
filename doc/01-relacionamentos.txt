@@ -1,0 +1,13 @@
+01) O que é relacionamento?
+    
+    Relacionamento é uma associação entre uma ou mais tabelas.
+    Por exemplo, em uma aplicação de músicas, no estilo Spotify, 
+    poderíamos ter uma tabela de "bandas" e outra tabela de "músicas", 
+    onde uma ou mais músicas podem estar associadas a uma banda.
+    Ou seja, o relacionamento é essa conversa entre uma tabela e outra. 
+
+    Tipos de relacionamentos:
+    1 pra 1  
+    1 pra N (um pra muitos)
+    N pra N (muitos pra muitos)
+    
