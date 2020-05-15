@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/yago-codev/blog-node-ejs.git",
   "author": "Yago Milano <yago.codev@gmail.com> (https://github.com/yago-codev)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^5.21.9"
+  }
 }
