@@ -1,0 +1,9 @@
+{
+  "name": "blog-node-ejs",
+  "version": "1.0.0",
+  "description": "Blog implementado com NodeJS e EJS.",
+  "main": "index.js",
+  "repository": "https://github.com/yago-codev/blog-node-ejs.git",
+  "author": "Yago Milano <yago.codev@gmail.com> (https://github.com/yago-codev)",
+  "license": "MIT"
+}
