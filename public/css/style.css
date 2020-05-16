@@ -1,0 +1,15 @@
+body {
+  background: #3E454D;
+}
+
+.categories-new {
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  border-radius: 8px;
+}
