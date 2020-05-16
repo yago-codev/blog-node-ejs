@@ -14,12 +14,20 @@
           </tr>
         </thead>
         <tbody>
+          <% categories.map(category => { %>
           <tr>
-            <th scope="row">1</th>
-            <td>Dev Web</td>
-            <td>Dev-Web</td>
+            <th scope="row">
+              <%= category.id %>
+            </th>
+            <td>
+              <%= category.title %>
+            </td>
+            <td>
+              <%= category.slug %>
+            </td>
             <td></td>
           </tr>
+          <% }) %>
         </tbody>
       </table>
     </div>
