@@ -32,14 +32,20 @@
             <td>
               <%= category.slug %>
             </td>
-            <td class="text-center">
-              <button class="btn btn-warning text-white col-5">
-                Editar
-              </button>
+            <td class="d-md-flex d-sm-column">
+              <form class="col-md-6 col-sm-12">
+                <input type="hidden" name="id" />
+                <button class="btn btn-warning text-white col-12">
+                  Editar
+                </button>
+              </form>
 
-              <button class="btn btn-danger text-white col-5">
-                Deletar
-              </button>
+              <form class="col-md-6 col-sm-12" method="POST" action="/categories/delete">
+                <input type="hidden" name="id" value="<%= category.id %>" />
+                <button class="btn btn-danger text-white col-12">
+                  Deletar
+                </button>
+              </form>
             </td>
           </tr>
           <% }) %>
