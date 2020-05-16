@@ -107,4 +107,242 @@
     });
 
 
-12) 
+12) Configurando o Express para utilizarmos o Body Parser:
+
+    const express = require("express");
+    const bodyParser = require("body-parser");  //  <<<<<<<<<<<<<<<<<<<<<
+
+    const app = express();
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({ extended: false }));  //  <<<<<<<<<<<<<<<<<<<<<<
+
+    app.get("/", (req, res) => {
+      res.render("index");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+13) Configurando o Express para lidar com requisições no formato JSON:
+
+    const express = require("express");
+    const bodyParser = require("body-parser");
+
+    const app = express();
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    // JSON
+    app.use(bodyParser.json());  //  <<<<<<<<<<<<<<<<<<<
+
+    app.get("/", (req, res) => {
+      res.render("index");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+14) Configurando o Express para lidar com arquivos estáticos:
+
+    const express = require("express");
+    const bodyParser = require("body-parser");
+
+    const app = express();
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    // Arquivos Estáticos
+    app.use(express.static("public"));  //  <<<<<<<<<<<<<<<<<<<<<
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    // JSON
+    app.use(bodyParser.json());
+
+    app.get("/", (req, res) => {
+      res.render("index");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+15) Criando a pasta do banco de dados:
+
+    Onde?
+
+    raíz do projeto -> database
+
+
+16) Criando arquivo de configuração da pasta "database"
+
+    Onde?
+
+    raíz do projeto -> database -> "database.js"
+
+
+17) Estrutura do arquivo de configuração do banco de dados:
+
+    Importando/Atribuindo o Sequelize:
+
+    const Sequelize = require("sequelize");  //  <<<<<<<<<<<<
+
+
+18) Instanciando o Sequelize:
+
+    OBS: Dentro da instância do Sequelize nós iremos 
+    passar as configurações para conectarmos ao banco de dados:
+
+    const Sequelize = require("sequelize");
+
+    const connection = new Sequelize("blog_node_ejs", "root", "rootroot", {  //  <<<<<<<<<<<<<<<<<<
+      host: "localhost",  //  <<<<<<<<<<<<<<<<<<
+      dialect: "mysql",  //  <<<<<<<<<<<<<<<<<<
+    });  //  <<<<<<<<<<<<<<<<<<
+
+    module.exports = connection;  //  <<<<<<<<<<<<<<<<<<
+
+
+19) Importando arquivo de configuração do banco de dados dentro do arquivo de entrada da aplicação:
+
+    const express = require("express");
+    const bodyParser = require("body-parser");
+
+    const app = express();
+    const connection = require("./database/database");  //  <<<<<<<<<<<<<<<<<<
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    // Arquivos Estáticos
+    app.use(express.static("public"));
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    // JSON
+    app.use(bodyParser.json());
+
+    app.get("/", (req, res) => {
+      res.render("index");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+20) Realizando autenticação com o banco de dados no arquivo de entrada da aplicação:
+
+    const express = require("express");
+    const bodyParser = require("body-parser");
+
+    const app = express();
+    const connection = require("./database/database");
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    // Arquivos Estáticos
+    app.use(express.static("public"));
+
+    // Body Parser
+    app.use(bodyParser.urlencoded({ extended: false }));
+
+    // JSON
+    app.use(bodyParser.json());
+
+    // Autenticação Banco de Dados
+    connection  //  <<<<<<<<<<<<<<<<<<<
+      .authenticate()  //  <<<<<<<<<<<<<<<<<<<
+      .then(() => {  //  <<<<<<<<<<<<<<<<<<<
+        console.log("Conexão estabelecida com sucesso!");  //  <<<<<<<<<<<<<<<<<<<
+      })  //  <<<<<<<<<<<<<<<<<<<
+      .catch((error) => {  //  <<<<<<<<<<<<<<<<<<<
+        console.log(error);  //  <<<<<<<<<<<<<<<<<<<
+      });  //  <<<<<<<<<<<<<<<<<<<
+
+    app.get("/", (req, res) => {
+      res.render("index");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+21) Criando a pasta de "partials" do "ejs":
+
+    Onde?
+    raíz do projeto -> views -> partials
+
+
+22) Incluindo nosso primeiro "partials", que será o Header da aplicação:
+
+    Onde?
+    raíz do projeto -> views -> partials -> "header.ejs"
+
+
+23) Estrutura do Header:
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog Node / EJS</title>
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+          crossorigin="anonymous"
+        ></script>
+      </head>
+    </html>
+
+
+24) Incluindo o Footer aos "partials":
+
+    Onde?
+
+    raíz do projeto -> views -> partials -> footer.ejs
+
+
+25) Estrutura do Footer:
+
+      <script 
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+        crossorigin="anonymous"></script>
+      <script 
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+        crossorigin="anonymous"></script>
+    </html>
+
+
+26) Refatorando o arquivo de entrada da pasta "views":
+
+    <%- include('partials/header.ejs') %>
+    <h1>Olá mundo</h1>
+    <%- include('partials/footer.ejs') %>
