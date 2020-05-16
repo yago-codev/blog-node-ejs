@@ -59,4 +59,52 @@
     yarn add nodemon -D
 
 
-08) 
+08) Configurando a View Engine do projeto:
+
+    const express = require("express");
+
+    const app = express();
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    app.get("/", (req, res) => {
+      res.send("Bem vindo ao meu site");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+09) Criando a pasta onde ficarão as "views" do projeto"
+
+    Onde?
+    Raíz do projeto -> "views"
+
+
+10) Criando o arquivo de entrada das views:
+
+    Onde?
+    raíz do projeto -> views -> "index.ejs"
+
+
+11) Renderizando a view dentro da rota de testes:
+
+    const express = require("express");
+
+    const app = express();
+
+    // View Engine
+    app.set("view engine", "ejs");
+
+    app.get("/", (req, res) => {
+      res.render("index");  //  <<<<<<<<<<<<<<<
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+12) 

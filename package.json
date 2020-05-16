@@ -6,6 +6,9 @@
   "repository": "https://github.com/yago-codev/blog-node-ejs.git",
   "author": "Yago Milano <yago.codev@gmail.com> (https://github.com/yago-codev)",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.2",
