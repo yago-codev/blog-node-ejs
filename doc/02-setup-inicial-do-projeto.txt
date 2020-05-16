@@ -1,0 +1,62 @@
+01) Dependencias Iniciais:
+
+    yarn add express  ->  Framework principal para lidarmos com o roteamento da aplicação
+    yarn add sequelize  ->  ORM para lidar com o banco de dados
+    yarn add mysql2 -> Driver para comunicação com o MySQL
+    yarn add body-parser  ->  Plugin para fazer com que o Node possa interpretar/parsear os dados presentes no corpo da requisição
+    yarn add ejs  ->  View Engine
+
+
+02) Criando o arquivo de entrada da aplicação:
+
+    Onde?
+
+    Raíz do projeto -> "index.js"
+
+
+03) Estrutura do arquivo "index.js":
+
+    Atribuindo o Express dentro de uma constante:
+
+    const express = require("express");
+
+
+04) Instanciando o express dentro de uma constante:
+
+    const express = require("express");
+
+    const app = express();  //  <<<<<<<<<<<
+
+
+05) Criando a rota de testes:
+
+    const express = require("express");
+
+    const app = express();
+
+    app.get("/", (req, res) => {  //  <<<<<<<<<<<<<
+      res.send("Bem vindo ao meu site");  //  <<<<<<<<<<<<<
+    });  //  <<<<<<<<<<<<<
+
+
+06) Definindo a porta de escuta do servidor:
+
+    const express = require("express");
+
+    const app = express();
+
+    app.get("/", (req, res) => {
+      res.send("Bem vindo ao meu site");
+    });
+
+    app.listen(8080, () => {
+      console.log("Servidor rodando com sucesso!");
+    });
+
+
+07) Instalando o Nodemon como dependência de desenvolvimento:
+
+    yarn add nodemon -D
+
+
+08) 
