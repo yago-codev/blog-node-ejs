@@ -13,4 +13,8 @@ const Category = connection.define('categories', {
   },
 });
 
+// Sincronizando o model com banco de dados para criar os relacionamentos no banco de dados
+// force: true -> vai fazer com que as alterações do model sejam refletidas no banco toda vez que o arquivo for salvo
+// Category.sync({ force: true });
+
 module.exports = Category;

@@ -1,13 +1,21 @@
+// Dependências
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// Arquivo de Configuração do Banco de Dados
 const connection = require("./database/database");
 
+// Instância do Express
 const app = express();
 
+// Controllers
 const categoriesController = require("./categories/CategoriesController");
 const articlesController = require("./articles/ArticlesController");
+
+// Models
+const Article = require("./articles/Article");
+const Category = require("./categories/Category");
 
 // View Engine
 app.set("view engine", "ejs");
